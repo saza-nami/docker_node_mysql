@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  hono_node:
+    container_name: hono_node
+    build: ./docker/node
+    tty: true
+    ports:
+      - 3000:3000
+    volumes:
+      - ./docker/src/react:/usr/src/app
+  # MariaDB のコンテナ
+  hono_mariadb:
+    container_name: hono_mariadb
+    image: mariadb:10.5.4
+    environment:
+      # ユーザー名やパスワードなどは適宜変更してください
+      MYSQL_DATABASE: $DB_NAME 
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASSWORD
+      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+    volumes:
+      - ./docker/db/data:/var/lib/mysql
