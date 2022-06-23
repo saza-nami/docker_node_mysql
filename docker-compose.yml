@@ -8,7 +8,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./docker/src:/usr/src/app
+      - ./docker/src:/mnt/src
   # MariaDB のコンテナ
   hono_mariadb:
     container_name: hono_mariadb
