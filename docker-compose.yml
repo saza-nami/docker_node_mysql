@@ -15,9 +15,9 @@ services:
     image: mariadb:10.5.4
     environment:
       # ユーザー名やパスワードなどは適宜変更してください
-      MYSQL_DATABASE: "saza"
-      MYSQL_USER: "saza"
-      MYSQL_PASSWORD: "koudai0623"
-      MYSQL_ROOT_PASSWORD: "koudai0623"
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASSWORD
+      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
     volumes:
       - ./docker/db/data:/var/lib/mysql
